@@ -69,7 +69,7 @@ const upload = multer({
 module.exports.insertImage = function (req, res) {
     return new Promise((resolve, reject) => {
         upload(req, res, function (err) {
-            console.log("files: ", req.file);
+            // console.log("files: ", req.file);
             if (err) {
                 console.log("Error while file uploading : ", err.message);
                 if (err.message.includes('File too large')) {
@@ -90,9 +90,8 @@ module.exports.insertImage = function (req, res) {
 module.exports.insertCountry = function (req, res) {
     return new Promise((resolve, reject) => {
         let data = req.body
-        console.log(data);
         countriesList.countries.push(data);
-        console.log(countriesList);
+        // console.log(countriesList);
         fs.writeFile("data/data.json", JSON.stringify(countriesList), err => {
             if (err) throw err;
             console.log("Done writing"); // Success
