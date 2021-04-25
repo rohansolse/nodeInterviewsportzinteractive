@@ -1,10 +1,11 @@
 <div class="container">
     <div class="row">
         <div class="col-md-6 offset-md-3">
-            <h3>Insert Country Details</h3>
+            <h3 class="text-center">Insert Country Details</h3>
+            <br>
             <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
                 <div class="form-group">
-                    <label>Name</label>
+                    <label>Country Name</label>
                     <input type="text" formControlName="name" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.name.errors }" />
                     <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
                         <div *ngIf="f.name.errors.required">Name is required</div>
@@ -14,27 +15,37 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label>Rank</label>
+                    <label>Country Rank</label>
                     <input type="number" (keyup)="checkImamgeRank($event)" formControlName="rank" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.rank.errors }" />
                     <div *ngIf="submitted && f.rank.errors" class="invalid-feedback">
                         <div *ngIf="f.rank.errors.required">Rank is required</div>
                     </div>
-                    <div *ngIf="rankExisted" class="rankError">This Rank is Already Existed</div>
-
-
+                    <div *ngIf="rankExisted" class="rankError">{{rankExisted}}</div>
                 </div>
                 <div class="form-group">
-                    <label>Insert Image</label>
+                    <label>Country Flag</label>
                     <div class="custom-file">
                         <input type="file" accept=".jpg,.png" formControlName="image" (change)="selectImage($event)" [ngClass]="{ 'is-invalid': submitted && f.image.errors }" placeholder="your image" class="custom-file-input" id="customFile">
                         <label class="custom-file-label" for="customFile">{{imageName}}</label>
                         <div *ngIf="submitted && f.image.errors" class="invalid-feedback">
                             <div *ngIf="f.image.errors.required">Image is required</div>
                         </div>
+                        <div *ngIf="imageError" class="rankError">{{imageError}}</div>
                     </div>
                 </div>
                 <div class="form-group">
-                    <button class="btn btn-primary">Register</button>
+                    <button class="btn btn-primary">Insert</button>
+                </div>
+                <div class="form-group">
+                    <div class="row" *ngIf="successMsg">
+                        <div class="col-12">
+                            <p class="alert alert-success">
+                                <strong>Country Inserted Successfully !!</strong>
+                                <br>
+                                Now You will be redirected to All Countries List
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </form>
         </div>
