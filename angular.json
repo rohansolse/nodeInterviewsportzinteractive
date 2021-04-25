@@ -24,6 +24,7 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -119,6 +120,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "nodeInterviewsportzinteractive"
+    }
+  },
+  "defaultProject": "nodeInterviewsportzinteractive",
+  "cli": {
+    "analytics": "096beab3-ec1e-48ab-aef9-15812d582337"
+  }
 }

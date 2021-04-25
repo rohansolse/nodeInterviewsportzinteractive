@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="float-right">
+        <div class="row">
+            <select class="browser-default custom-select" (change)="selectedCountry($event)">
+                <option value="" selected disabled hidden>Select Country</option>
+                <option *ngFor="let country of countriesList" [value]="country.rank">
+                    {{country.name}}
+                </option>
+            </select>
+        </div>
+    </div>
+</div>
+<br>
+<br>
+<div class="container" *ngIf="country != null">
+    <div class="row">
+        <div class="col-md-5">
+            <label for=""><strong>Country Rank</strong></label>
+            <input type="text" class="form-control" readonly value="{{country.rank}}">
+        </div>
+        <div class="col-md-5">
+            <label for=""><strong>Country Name</strong></label>
+            <input type="text" class="form-control" readonly value="{{country.name}}">
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-md-5">
+            <label for=""><strong>Country Flag</strong></label><br>
+            <img class="img-fluid" src="http://localhost:8080/{{country.flag}}" alt="">
+        </div>
+    </div>
+</div>

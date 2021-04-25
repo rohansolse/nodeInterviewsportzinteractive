@@ -1,0 +1,16 @@
+<table class="table table-bordered">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Rank</th>
+            <th scope="col">Name</th>
+            <th scope="col">Flag</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor='let data of countriesList; let i=index;'>
+            <td>{{data.rank}}</td>
+            <td>{{data.name}}</td>
+            <td> <img src='{{serverLink}}{{data.flag}}' /> </td>
+        </tr>
+    </tbody>
+</table>
