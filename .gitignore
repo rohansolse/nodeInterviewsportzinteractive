@@ -1,10 +1,8 @@
 node_modules
 server/node_modules
-server/images/applications
 logs/*
 *.log
 *.zip
 test*
 dist
 backup
-/src/app/api-manager/sample.json
